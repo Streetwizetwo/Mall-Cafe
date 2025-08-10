@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mall Cafe - Authentic Indian Bunny Chows & Breyani</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
+    <!-- SEO / Social -->
+    <meta name="description" content="Mall Cafe at Stanger Mall serves authentic Indian Bunny Chows & Breyani. Visit us or call to order takeaways." />
+    <meta property="og:title" content="Mall Cafe - Authentic Indian Bunny Chows & Breyani" />
+    <meta property="og:description" content="Experience the soul of India in every bite. Stanger Mall, KwaDukuza. Call or WhatsApp to order." />
+    <!-- Replace with a hosted preview image -->
+    <meta property="og:image" content="https://example.com/mall-cafe-preview.jpg" />
+    <meta property="og:type" content="restaurant" />
+    <meta name="theme-color" content="#ff6b35" />
+
+    <!-- Structured data (LocalBusiness) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FoodEstablishment",
+      "name": "Mall Cafe",
+      "image": "https://example.com/mall-cafe-preview.jpg",
+      "telephone": "+27 32 551 5926",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "55 King Shaka Street, Stanger Mall",
+        "addressLocality": "KwaDukuza",
+        "postalCode": "4450",
+        "addressRegion": "KwaZulu-Natal",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-29.000000",
+        "longitude": "31.000000"
+      },
+      "url": "https://www.facebook.com/p/Mall-Cafe-100034650206105/",
+      "priceRange": "$",
+      "servesCuisine": ["Indian", "South African"],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday","Tuesday","Wednesday","Thursday","Friday"
+          ],
+          "opens": "08:30",
+          "closes": "19:00"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Reset + base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html,body { height: 100%; }
         body {
             font-family: 'Georgia', serif;
             overflow-x: hidden;
             background: linear-gradient(135deg, #ff6b35, #f7931e, #ffcc02);
             color: #2c1810;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        /* HERO */
         .hero {
             height: 100vh;
             position: relative;
@@ -32,12 +79,10 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mandala" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="25" cy="25" r="15" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.3"/><circle cx="25" cy="25" r="10" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23mandala)"/></svg>') repeat;
             animation: mandalaFloat 20s ease-in-out infinite;
+            opacity: 0.7;
         }
 
         @keyframes mandalaFloat {
@@ -50,6 +95,7 @@
             z-index: 2;
             transform-style: preserve-3d;
             animation: heroFloat 6s ease-in-out infinite;
+            padding: 2rem;
         }
 
         @keyframes heroFloat {
@@ -83,45 +129,36 @@
             font-style: italic;
         }
 
+        /* Particles */
         .spice-particles {
             position: absolute;
             width: 100%;
             height: 100%;
             overflow: hidden;
             pointer-events: none;
+            z-index: 1;
         }
-
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 6px;
+            height: 6px;
             background: #ffeb3b;
             border-radius: 50%;
             animation: float 8s infinite ease-in-out;
-            opacity: 0.8;
+            opacity: 0.9;
         }
-
         .particle:nth-child(2n) { background: #ff9800; animation-delay: -2s; }
         .particle:nth-child(3n) { background: #f44336; animation-delay: -4s; }
         .particle:nth-child(4n) { background: #4caf50; animation-delay: -6s; }
 
         @keyframes float {
-            0% {
-                transform: translateY(100vh) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(100px) rotate(360deg); opacity: 0; }
         }
 
+        /* Sections */
         .menu-section {
             padding: 5rem 2rem;
             background: linear-gradient(45deg, #1a1a1a, #2d1b14);
@@ -131,10 +168,7 @@
         .menu-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="paisley" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30 10 Q40 20 30 30 Q20 20 30 10" fill="none" stroke="rgba(255,193,7,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23paisley)"/></svg>') repeat;
             opacity: 0.3;
         }
@@ -162,13 +196,13 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
         }
 
         .menu-item {
-            background: linear-gradient(135deg, rgba(255,107,53,0.9), rgba(211,47,47,0.9));
+            background: linear-gradient(135deg, rgba(255,107,53,0.95), rgba(211,47,47,0.95));
             padding: 2rem;
             border-radius: 20px;
             text-align: center;
@@ -176,8 +210,8 @@
             transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,193,7,0.3);
+            backdrop-filter: blur(6px);
+            border: 2px solid rgba(255,193,7,0.25);
         }
 
         .menu-item::before {
@@ -187,7 +221,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.06), transparent);
             transform: rotate(45deg);
             transition: all 0.6s ease;
             opacity: 0;
@@ -198,26 +232,18 @@
         }
 
         @keyframes shimmer {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-                opacity: 0;
-            }
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
         }
 
         .menu-item:hover {
-            transform: perspective(1000px) rotateY(10deg) translateZ(30px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transform: perspective(1000px) rotateY(10deg) translateZ(30px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
         }
 
         .menu-item h3 {
-            font-size: 2rem;
+            font-size: 1.6rem;
             color: #ffffff;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
@@ -225,9 +251,9 @@
 
         .menu-item p {
             color: #fff5e1;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
         }
 
         .cta-section {
@@ -240,29 +266,28 @@
 
         .cta-button {
             display: inline-block;
-            padding: 1.5rem 3rem;
+            padding: 1.2rem 2.4rem;
             background: linear-gradient(45deg, #ffeb3b, #ff9800);
             color: #2c1810;
             text-decoration: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
             border-radius: 50px;
             transform: perspective(1000px) rotateX(0deg);
             transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            margin: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            margin: 0.6rem;
             animation: ctaPulse 3s ease-in-out infinite;
         }
 
         @keyframes ctaPulse {
             0%, 100% { transform: perspective(1000px) rotateX(0deg) scale(1); }
-            50% { transform: perspective(1000px) rotateX(5deg) scale(1.05); }
+            50% { transform: perspective(1000px) rotateX(5deg) scale(1.03); }
         }
 
         .cta-button:hover {
-            transform: perspective(1000px) rotateX(10deg) translateZ(20px) scale(1.1);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transform: perspective(1000px) rotateX(10deg) translateZ(12px) scale(1.06);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.45);
             background: linear-gradient(45deg, #fff176, #ffb74d);
         }
 
@@ -274,33 +299,29 @@
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;
         }
 
         .info-card {
-            background: rgba(255,107,53,0.1);
+            background: rgba(255,107,53,0.08);
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,193,7,0.2);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,193,7,0.12);
             transition: all 0.3s ease;
         }
 
         .info-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,107,53,0.2);
-            box-shadow: 0 15px 30px rgba(255,107,53,0.2);
+            transform: translateY(-8px);
+            background: rgba(255,107,53,0.15);
+            box-shadow: 0 15px 30px rgba(255,107,53,0.12);
         }
 
-        .info-card h3 {
-            color: #ffeb3b;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+        .info-card h3 { color: #ffeb3b; margin-bottom: 1rem; font-size: 1.25rem; }
 
         .scroll-indicator {
             position: fixed;
@@ -319,126 +340,203 @@
             60% { transform: translateX(-50%) translateY(-5px); }
         }
 
-        .floating-spices {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .spice {
-            position: absolute;
-            font-size: 2rem;
-            color: rgba(255,193,7,0.7);
-            animation: floatSpice 10s infinite ease-in-out;
-        }
-
+        /* Floating spices (emoji) */
+        .floating-spices { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .spice { position: absolute; font-size: 2rem; color: rgba(255,193,7,0.85); animation: floatSpice 10s infinite ease-in-out; }
         @keyframes floatSpice {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-button {
-                font-size: 1.2rem;
-                padding: 1rem 2rem;
-            }
+        /* WhatsApp floating button */
+        .whatsapp-float {
+            position: fixed;
+            width: 64px;
+            height: 64px;
+            bottom: 22px;
+            right: 22px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 10px 24px rgba(0,0,0,0.32); }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 76px;
+            bottom: 34px;
+            background: rgba(0,0,0,0.85);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1101;
+        }
+
+        .whatsapp-float:hover + .whatsapp-tooltip,
+        .whatsapp-float:focus + .whatsapp-tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Facebook & Map embed containers */
+        .social-embeds { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; margin-top: 2rem; }
+        .embed-card { background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.04); }
+
+        .map-iframe { width: 100%; height: 300px; border: 0; border-radius: 8px; }
+
+        /* Accessibility: reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 900px) {
+            .social-embeds { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-tooltip { display: none; } /* tooltip can be annoying on small screens */
+            .spice { display: none; } /* reduce clutter on tiny screens */
         }
     </style>
 </head>
 <body>
-    <div class="floating-spices">
-        <div class="spice" style="left: 10%; animation-delay: 0s;">🌶️</div>
-        <div class="spice" style="left: 20%; animation-delay: 2s;">🧅</div>
-        <div class="spice" style="left: 30%; animation-delay: 4s;">🌿</div>
-        <div class="spice" style="left: 40%; animation-delay: 6s;">🍛</div>
-        <div class="spice" style="left: 50%; animation-delay: 8s;">🥘</div>
-        <div class="spice" style="left: 60%; animation-delay: 1s;">🌶️</div>
-        <div class="spice" style="left: 70%; animation-delay: 3s;">🧅</div>
-        <div class="spice" style="left: 80%; animation-delay: 5s;">🌿</div>
-        <div class="spice" style="left: 90%; animation-delay: 7s;">🍛</div>
+    <!-- Floating emoji spices -->
+    <div class="floating-spices" aria-hidden="true">
+        <div class="spice" style="left:10%; animation-delay:0s;">🌶️</div>
+        <div class="spice" style="left:20%; animation-delay:2s;">🧅</div>
+        <div class="spice" style="left:30%; animation-delay:4s;">🌿</div>
+        <div class="spice" style="left:40%; animation-delay:6s;">🍛</div>
+        <div class="spice" style="left:50%; animation-delay:8s;">🥘</div>
+        <div class="spice" style="left:60%; animation-delay:1s;">🌶️</div>
+        <div class="spice" style="left:70%; animation-delay:3s;">🧅</div>
+        <div class="spice" style="left:80%; animation-delay:5s;">🌿</div>
+        <div class="spice" style="left:90%; animation-delay:7s;">🍛</div>
     </div>
 
-    <section class="hero">
-        <div class="spice-particles" id="particles"></div>
+    <!-- HERO -->
+    <section class="hero" role="banner" aria-label="Mall Cafe hero">
+        <div class="spice-particles" id="particles" aria-hidden="true"></div>
+
         <div class="hero-content">
             <h1>MALL CAFE</h1>
             <p class="subtitle">Authentic Indian Flavors • Bunny Chows & Breyani</p>
-            <p style="color: #ffeb3b; font-size: 1.2rem; margin-top: 1rem;">Experience the Soul of India</p>
+            <p style="color: #ffeb3b; font-size: 1.1rem; margin-top: 1rem;">Experience the Soul of India</p>
         </div>
-        <div class="scroll-indicator">↓</div>
+
+        <div class="scroll-indicator" aria-hidden="true">↓</div>
     </section>
 
-    <section class="menu-section">
+    <!-- MENU -->
+    <section class="menu-section" id="menu">
         <div class="container">
             <h2 class="section-title">Authentic Delicacies</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
+
+            <div class="menu-grid" aria-live="polite">
+                <div class="menu-item" tabindex="0">
                     <h3>🍛 Chicken Bunny Chow</h3>
                     <p>Traditional South African Indian street food - aromatic curry served in a hollowed-out loaf of bread. Our chicken is marinated in authentic spices and slow-cooked to perfection.</p>
                 </div>
-                <div class="menu-item">
+
+                <div class="menu-item" tabindex="0">
                     <h3>🥘 Mutton Bunny Chow</h3>
                     <p>Rich, tender mutton curry with deep flavors of cardamom, cinnamon, and bay leaves. Served the traditional way in fresh bread - a true taste of heritage.</p>
                 </div>
-                <div class="menu-item">
+
+                <div class="menu-item" tabindex="0">
                     <h3>🍚 Authentic Breyani</h3>
                     <p>Fragrant basmati rice layered with succulent meat, saffron, and aromatic spices. Each grain tells a story of generations-old recipes passed down through time.</p>
+                </div>
+            </div>
+
+            <!-- Social embeds: Facebook + Map -->
+            <div class="social-embeds" aria-hidden="false">
+                <div class="embed-card" id="facebook-embed">
+                    <h3 style="color:#fff; margin-bottom:0.5rem;">Facebook</h3>
+                    <p style="color:#fff5; font-size:0.95rem; margin-bottom:1rem;">Latest posts & updates (if visible)</p>
+                    <!-- Facebook Page/Post plugin placeholder -->
+                    <div id="fb-root"></div>
+                    <div class="fb-post" 
+                         data-href="https://www.facebook.com/p/Mall-Cafe-100034650206105/"
+                         data-show-text="true"
+                         style="max-width:100%;">
+                         <!-- fallback -->
+                         <blockquote cite="https://www.facebook.com/p/Mall-Cafe-100034650206105/" class="fb-xfbml-parse-ignore">
+                             <a href="https://www.facebook.com/p/Mall-Cafe-100034650206105/">Mall Cafe</a>
+                         </blockquote>
+                    </div>
+                </div>
+
+                <div class="embed-card" id="map-embed">
+                    <h3 style="color:#fff; margin-bottom:0.5rem;">Find Us</h3>
+                    <p style="color:#fff5; font-size:0.95rem; margin-bottom:0.6rem;">Stanger Mall, 55 King Shaka Street, KwaDukuza</p>
+                    <!-- Simple Google Maps embed using the search q param -->
+                    <iframe
+                        class="map-iframe"
+                        src="https://maps.google.com/maps?q=Stanger%20Mall%2055%20King%20Shaka%20Street%20KwaDukuza%204450&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Mall Cafe location on Google Maps"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
+    <!-- CTA -->
+    <section class="cta-section" aria-labelledby="cta-title">
         <div class="container">
-            <h2 style="color: #ffffff; margin-bottom: 2rem; font-size: clamp(2rem, 5vw, 4rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Ready to Experience Authentic Indian Flavors?</h2>
-            <a href="tel:0325515926" class="cta-button">📞 Call Now</a>
-            <a href="#location" class="cta-button">📍 Visit Us</a>
+            <h2 id="cta-title" style="color: #ffffff; margin-bottom: 1rem; font-size: clamp(2rem,5vw,3.2rem);">Ready to Experience Authentic Indian Flavors?</h2>
+            <a href="tel:0325515926" class="cta-button" aria-label="Call Mall Cafe">📞 Call Now</a>
+            <a href="#map-embed" class="cta-button" aria-label="Visit Mall Cafe">📍 Visit Us</a>
+            <!-- secondary WhatsApp CTA -->
+            <a href="https://wa.me/27825515926?text=Hi%20Mall%20Cafe!%20I'd%20like%20to%20place%20an%20order." class="cta-button" style="background: linear-gradient(45deg,#25D366,#1DA851); color:#fff; box-shadow: none;" aria-label="WhatsApp Mall Cafe" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
         </div>
     </section>
 
-    <section class="info-section" id="location">
+    <!-- INFO -->
+    <section class="info-section" id="location" aria-labelledby="visit-title">
         <div class="container">
-            <h2 style="color: #ff6b35; text-align: center; margin-bottom: 3rem; font-size: clamp(2rem, 4vw, 3rem);">Visit Mall Cafe</h2>
+            <h2 id="visit-title" style="color: #ff6b35; text-align: center; margin-bottom: 1.2rem; font-size: clamp(1.6rem, 3.5vw, 2.4rem);">Visit Mall Cafe</h2>
+
             <div class="info-grid">
-                <div class="info-card">
+                <div class="info-card" tabindex="0">
                     <h3>📍 Location</h3>
                     <p>Stanger Mall<br>55 King Shaka Street<br>KwaDukuza Central<br>KwaDukuza, 4450</p>
                 </div>
-                <div class="info-card">
+
+                <div class="info-card" tabindex="0">
                     <h3>📞 Contact</h3>
                     <p>032 551 5926</p>
-                    <p style="margin-top: 1rem; color: #ffeb3b;">Call ahead for takeaways!</p>
+                    <p style="margin-top:1rem; color:#ffeb3b;">Call ahead for takeaways!</p>
                 </div>
-                <div class="info-card">
+
+                <div class="info-card" tabindex="0">
                     <h3>🕐 Hours</h3>
                     <p>Opens Monday at 8:30 AM</p>
                     <p style="margin-top: 1rem; color: #ff9800;">Currently Closed</p>
                 </div>
-                <div class="info-card">
+
+                <div class="info-card" tabindex="0">
                     <h3>🌟 Experience</h3>
                     <p>Authentic recipes<br>Fresh ingredients<br>Traditional preparation<br>Unforgettable taste</p>
                 </div>
@@ -446,129 +544,144 @@
         </div>
     </section>
 
-    <script>
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 8 + 's';
-                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
-                particlesContainer.appendChild(particle);
+    <!-- WhatsApp floating button (primary) -->
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/27825515926?text=Hi%20Mall%20Cafe!%20I'd%20like%20to%20place%20an%20order."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with Mall Cafe on WhatsApp">
+      <!-- Inline WhatsApp SVG icon -->
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <path d="M20.52 3.48A11.88 11.88 0 0012 0C5.37 0 .01 5.37.01 12.01c0 2.11.55 4.17 1.6 6.01L0 24l6.25-1.6A11.96 11.96 0 0012 24c6.63 0 11.99-5.37 11.99-11.99 0-3.21-1.25-6.22-3.47-8.53z" fill="#fff" opacity="0.12"/>
+        <path d="M12.01 22.2c-1.9 0-3.77-.52-5.37-1.5l-.38-.23L4 21l1.8-2.3-.25-.4A9.99 9.99 0 012.01 12.01 10 10 0 1112.01 22.2z" fill="#fff"/>
+        <path d="M17.5 14.3c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.78.97-.96 1.17-.18.2-.36.22-.66.08-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.28.3-.47.1-.2.05-.37-.02-.52-.07-.15-.66-1.59-.9-2.18-.24-.58-.49-.5-.67-.51-.17-.02-.37-.02-.57-.02-.2 0-.52.07-.8.37-.27.3-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.08 3.2 5.04 4.49 0 0 .3.1.55.05.26-.05 1.77-.72 2.02-1.41.25-.69.25-1.28.18-1.41-.07-.13-.27-.2-.57-.35z" fill="#25D366"/>
+      </svg>
+    </a>
+    <div class="whatsapp-tooltip" role="tooltip">Chat with us on WhatsApp</div>
+
+    <!-- Facebook SDK (deferred) -->
+    <script defer>
+    // Load FB SDK asynchronously
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.defer = true;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Main JS: particles, scroll effects, etc. -->
+    <script defer>
+    // Create floating particles (optimized)
+    function createParticles(count = 36) {
+        const particlesContainer = document.getElementById('particles');
+        if (!particlesContainer) return;
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < count; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = (Math.random() * 100) + '%';
+            particle.style.top = (Math.random() * 100) + '%';
+            particle.style.animationDelay = (Math.random() * 8) + 's';
+            particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            fragment.appendChild(particle);
+        }
+        particlesContainer.appendChild(fragment);
+    }
+
+    // Scroll & 3D effects (throttled)
+    function initScrollEffects() {
+        const hero = document.querySelector('.hero');
+        const menuItems = document.querySelectorAll('.menu-item');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    if (hero) hero.style.transform = `translate3d(0, ${scrolled * -0.5}px, 0)`;
+                    menuItems.forEach(item => {
+                        const rect = item.getBoundingClientRect();
+                        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                        if (isVisible) {
+                            const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                            const rotateY = (progress - 0.5) * 20;
+                            const translateZ = Math.max(0, progress * 30);
+                            item.style.transform = `perspective(1000px) rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
+                        }
+                    });
+                    if (scrollIndicator) {
+                        scrollIndicator.style.opacity = (window.pageYOffset > 100) ? '0' : '1';
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
-        }
+        }, { passive: true });
+    }
 
-        // 3D scroll effects
-        function initScrollEffects() {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * -0.5;
-                
-                // Parallax background
-                const hero = document.querySelector('.hero');
-                if (hero) {
-                    hero.style.transform = `translate3d(0, ${rate}px, 0)`;
-                }
-
-                // 3D menu items
-                const menuItems = document.querySelectorAll('.menu-item');
-                menuItems.forEach((item, index) => {
-                    const rect = item.getBoundingClientRect();
-                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-                    
-                    if (isVisible) {
-                        const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-                        const rotateY = (progress - 0.5) * 20;
-                        const translateZ = progress * 30;
-                        
-                        item.style.transform = `perspective(1000px) rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
-                    }
-                });
-
-                // Hide scroll indicator after scrolling
-                const scrollIndicator = document.querySelector('.scroll-indicator');
-                if (scrollIndicator && scrolled > 100) {
-                    scrollIndicator.style.opacity = '0';
-                } else if (scrollIndicator) {
-                    scrollIndicator.style.opacity = '1';
+    // Smooth scrolling for internal links
+    function initSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-        }
-
-        // Smooth scrolling for internal links
-        function initSmoothScrolling() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
-        // Intersection Observer for animations
-        function initIntersectionObserver() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.menu-item, .info-card').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(50px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        }
-
-        // Mouse movement 3D effects
-        function init3DEffects() {
-            document.addEventListener('mousemove', (e) => {
-                const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-                const mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-
-                // Hero content 3D movement
-                const heroContent = document.querySelector('.hero-content');
-                if (heroContent) {
-                    const rotateX = mouseY * 5;
-                    const rotateY = mouseX * 5;
-                    heroContent.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                }
-
-                // Menu items subtle 3D movement
-                const menuItems = document.querySelectorAll('.menu-item');
-                menuItems.forEach(item => {
-                    const rect = item.getBoundingClientRect();
-                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-                    
-                    if (isVisible) {
-                        const rotateX = mouseY * 2;
-                        const rotateY = mouseX * 2;
-                        item.style.transform += ` rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                    }
-                });
-            });
-        }
-
-        // Initialize all effects
-        document.addEventListener('DOMContentLoaded', () => {
-            createParticles();
-            initScrollEffects();
-            initSmoothScrolling();
-            initIntersectionObserver();
-            init3DEffects();
         });
+    }
+
+    // Intersection Observer for entrance animations
+    function initIntersectionObserver() {
+        if (!('IntersectionObserver' in window)) return;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.menu-item, .info-card, .embed-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    }
+
+    // Mouse movement 3D effects (subtle, not for mobile)
+    function init3DEffects() {
+        if (window.matchMedia('(pointer: coarse)').matches) return; // skip on touch
+        document.addEventListener('mousemove', (e) => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+            const mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                const rotateX = mouseY * 4;
+                const rotateY = mouseX * 4;
+                heroContent.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            }
+        });
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        createParticles(40);
+        initScrollEffects();
+        initSmoothScrolling();
+        initIntersectionObserver();
+        init3DEffects();
+    });
     </script>
 </body>
 </html>
