@@ -533,19 +533,39 @@
             font-size: 14px;
         }
 
+        
         /* Facebook & Map embed containers */
         .social-embeds {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 2rem;
             align-items: start;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
         .embed-card {
-            background: rgba(255,255,255,0.03);
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.04);
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            min-height: 500px;
+        }
+        
+        /* Facebook embed specific styling */
+        #facebook-embed {
+            overflow: hidden;
+        }
+        
+        #facebook-embed .fb-page {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        /* Ensure Facebook plugin is responsive */
+        .fb-page, .fb-page span, .fb-page span iframe[style] {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
         }
 
         .map-iframe {
