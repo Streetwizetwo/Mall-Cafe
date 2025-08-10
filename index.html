@@ -6,12 +6,13 @@
     <title>Mall Cafe - Authentic Indian Bunny Chows & Breyani</title>
 
     <!-- SEO / Social -->
-    <meta name="description" content="Mall Cafe at Stanger Mall serves authentic Indian Bunny Chows & Breyani. Visit us or call to order takeaways." />
+    <meta name="description" content="Mall Cafe at Stanger Mall serves authentic Indian Bunny Chows & Breyani. Visit us or call to order takeaways. Fresh ingredients, traditional recipes." />
     <meta property="og:title" content="Mall Cafe - Authentic Indian Bunny Chows & Breyani" />
-    <meta property="og:description" content="Experience the soul of India in every bite. Stanger Mall, KwaDukuza. Call or WhatsApp to order." />
-    <!-- Replace with a hosted preview image -->
+    <meta property="og:description" content="Experience the soul of India in every bite. Stanger Mall, KwaDukuza. Call or WhatsApp to order delicious Bunny Chows and Breyani." />
+    <!-- TODO: Replace with a hosted preview image -->
     <meta property="og:image" content="https://example.com/mall-cafe-preview.jpg" />
-    <meta property="og:type" content="restaurant" />
+    <meta property="og:type" content="restaurant.food establishment" />
+    <meta property="og:url" content="https://www.facebook.com/p/Mall-Cafe-100034650206105/" />
     <meta name="theme-color" content="#ff6b35" />
 
     <!-- Structured data (LocalBusiness) -->
@@ -20,8 +21,11 @@
       "@context": "https://schema.org",
       "@type": "FoodEstablishment",
       "name": "Mall Cafe",
+      "alternateName": "Mall Café",
       "image": "https://example.com/mall-cafe-preview.jpg",
-      "telephone": "+27 32 551 5926",
+      "telephone": "+27325515926",
+      "servesCuisine": ["Indian", "SouthAfrican", "DurbanIndian"],
+      "priceRange": "R50-R200",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "55 King Shaka Street, Stanger Mall",
@@ -32,12 +36,10 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "-29.000000",
-        "longitude": "31.000000"
+        "latitude": -29.000000,
+        "longitude": 31.000000
       },
       "url": "https://www.facebook.com/p/Mall-Cafe-100034650206105/",
-      "priceRange": "$",
-      "servesCuisine": ["Indian", "South African"],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -46,15 +48,40 @@
           ],
           "opens": "08:30",
           "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Saturday", "Sunday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
         }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+27824212535",
+          "contactType": "customer service",
+          "availableLanguage": "en"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+27824206786",
+          "contactType": "customer service",
+          "availableLanguage": "en"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/p/Mall-Cafe-100034650206105/"
       ]
     }
     </script>
 
     <style>
         /* Reset + base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html,body { height: 100%; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
         body {
             font-family: 'Georgia', serif;
             overflow-x: hidden;
@@ -62,6 +89,23 @@
             color: #2c1810;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #ff6b35;
+            color: white;
+            padding: 8px;
+            z-index: 1000;
+            text-decoration: none;
+            border-radius: 0 0 4px 4px;
+        }
+        .skip-link:focus {
+            top: 0;
         }
 
         /* HERO */
@@ -80,6 +124,7 @@
             content: '';
             position: absolute;
             inset: 0;
+            /* Fixed url() syntax */
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mandala" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="25" cy="25" r="15" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.3"/><circle cx="25" cy="25" r="10" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23mandala)"/></svg>') repeat;
             animation: mandalaFloat 20s ease-in-out infinite;
             opacity: 0.7;
@@ -169,6 +214,7 @@
             content: '';
             position: absolute;
             inset: 0;
+            /* Fixed url() syntax */
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="paisley" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30 10 Q40 20 30 30 Q20 20 30 10" fill="none" stroke="rgba(255,193,7,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23paisley)"/></svg>') repeat;
             opacity: 0.3;
         }
@@ -278,6 +324,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.25);
             margin: 0.6rem;
             animation: ctaPulse 3s ease-in-out infinite;
+            border: none; /* Remove default button border */
+            cursor: pointer;
         }
 
         @keyframes ctaPulse {
@@ -285,10 +333,12 @@
             50% { transform: perspective(1000px) rotateX(5deg) scale(1.03); }
         }
 
-        .cta-button:hover {
+        .cta-button:hover, .cta-button:focus {
             transform: perspective(1000px) rotateX(10deg) translateZ(12px) scale(1.06);
             box-shadow: 0 20px 40px rgba(0,0,0,0.45);
             background: linear-gradient(45deg, #fff176, #ffb74d);
+            outline: 2px solid #fff;
+            outline-offset: 2px;
         }
 
         .info-section {
@@ -315,13 +365,25 @@
             transition: all 0.3s ease;
         }
 
-        .info-card:hover {
+        .info-card:hover, .info-card:focus-within {
             transform: translateY(-8px);
             background: rgba(255,107,53,0.15);
             box-shadow: 0 15px 30px rgba(255,107,53,0.12);
         }
 
-        .info-card h3 { color: #ffeb3b; margin-bottom: 1rem; font-size: 1.25rem; }
+        .info-card h3 {
+            color: #ffeb3b;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .info-card a {
+            color: #ff9800;
+            text-decoration: underline;
+        }
+        .info-card a:hover, .info-card a:focus {
+            color: #fff176;
+        }
 
         .scroll-indicator {
             position: fixed;
@@ -332,6 +394,10 @@
             font-size: 2rem;
             animation: bounce 2s infinite;
             z-index: 1000;
+            /* Added for better accessibility */
+            cursor: pointer;
+            border: none;
+            background: none;
         }
 
         @keyframes bounce {
@@ -341,8 +407,21 @@
         }
 
         /* Floating spices (emoji) */
-        .floating-spices { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-        .spice { position: absolute; font-size: 2rem; color: rgba(255,193,7,0.85); animation: floatSpice 10s infinite ease-in-out; }
+        .floating-spices {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .spice {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255,193,7,0.85);
+            animation: floatSpice 10s infinite ease-in-out;
+        }
         @keyframes floatSpice {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
             10% { opacity: 1; }
@@ -369,57 +448,173 @@
             justify-content: center;
             text-decoration: none;
             transition: transform 0.18s ease, box-shadow 0.18s ease;
+            border: none;
+            cursor: pointer;
         }
 
-        .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 10px 24px rgba(0,0,0,0.32); }
+        .whatsapp-float:hover, .whatsapp-float:focus {
+            transform: scale(1.08);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.32);
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
 
-        .whatsapp-tooltip {
-            position: absolute;
-            right: 76px;
-            bottom: 34px;
-            background: rgba(0,0,0,0.85);
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.9rem;
+        /* WhatsApp popup menu */
+        .whatsapp-popup {
+            position: fixed;
+            bottom: 90px;
+            right: 22px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1099;
+            width: 250px;
             opacity: 0;
-            transform: translateY(6px);
+            transform: translateY(10px);
             transition: opacity 0.2s ease, transform 0.2s ease;
-            white-space: nowrap;
             pointer-events: none;
-            z-index: 1101;
+            /* Added for better accessibility */
+            border: 1px solid #ddd;
         }
 
-        .whatsapp-float:hover + .whatsapp-tooltip,
-        .whatsapp-float:focus + .whatsapp-tooltip {
+        .whatsapp-popup.active {
             opacity: 1;
             transform: translateY(0);
+            pointer-events: auto;
         }
 
-        /* Facebook & Map embed containers */
-        .social-embeds { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: start; margin-top: 2rem; }
-        .embed-card { background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.04); }
+        .whatsapp-popup::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 25px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            transform: rotate(45deg);
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.1);
+        }
 
-        .map-iframe { width: 100%; height: 300px; border: 0; border-radius: 8px; }
+        .whatsapp-popup h3 {
+            padding: 15px;
+            margin: 0;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .whatsapp-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+
+        .whatsapp-option:last-child {
+            border-bottom: none;
+        }
+
+        .whatsapp-option:hover, .whatsapp-option:focus {
+            background-color: #f5f5f5;
+            outline: 2px solid #25D366;
+            outline-offset: -2px;
+        }
+
+        .whatsapp-option img {
+            width: 30px;
+            height: 30px;
+            margin-right: 12px;
+        }
+
+        .whatsapp-option span {
+            font-size: 14px;
+        }
+
+        
+        /* Facebook & Map embed containers */
+        .social-embeds {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+        .embed-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            min-height: 500px;
+        }
+        
+        /* Facebook embed specific styling */
+        #facebook-embed {
+            overflow: hidden;
+        }
+        
+        #facebook-embed .fb-page {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        /* Ensure Facebook plugin is responsive */
+        .fb-page, .fb-page span, .fb-page span iframe[style] {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 8px;
+        }
 
         /* Accessibility: reduced motion */
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
         }
 
         /* Responsive tweaks */
         @media (max-width: 900px) {
-            .social-embeds { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 3.2rem; }
+            .social-embeds {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 3.2rem;
+            }
         }
 
         @media (max-width: 480px) {
-            .whatsapp-tooltip { display: none; } /* tooltip can be annoying on small screens */
-            .spice { display: none; } /* reduce clutter on tiny screens */
+            .spice {
+                display: none; /* reduce clutter on tiny screens */
+            }
+            .whatsapp-popup {
+                width: 220px;
+                right: 10px;
+                bottom: 80px;
+            }
+            .menu-grid {
+                grid-template-columns: 1fr; /* Stack menu items on small screens */
+            }
+            .info-grid {
+                grid-template-columns: 1fr; /* Stack info cards on small screens */
+            }
         }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Floating emoji spices -->
     <div class="floating-spices" aria-hidden="true">
         <div class="spice" style="left:10%; animation-delay:0s;">🌶️</div>
@@ -434,7 +629,7 @@
     </div>
 
     <!-- HERO -->
-    <section class="hero" role="banner" aria-label="Mall Cafe hero">
+    <section class="hero" role="banner" aria-label="Mall Cafe hero" id="main-content">
         <div class="spice-particles" id="particles" aria-hidden="true"></div>
 
         <div class="hero-content">
@@ -443,7 +638,7 @@
             <p style="color: #ffeb3b; font-size: 1.1rem; margin-top: 1rem;">Experience the Soul of India</p>
         </div>
 
-        <div class="scroll-indicator" aria-hidden="true">↓</div>
+        <button class="scroll-indicator" aria-label="Scroll down to menu" id="scroll-down-btn">↓</button>
     </section>
 
     <!-- MENU -->
@@ -452,44 +647,49 @@
             <h2 class="section-title">Authentic Delicacies</h2>
 
             <div class="menu-grid" aria-live="polite">
-                <div class="menu-item" tabindex="0">
-                    <h3>🍛 Chicken Bunny Chow</h3>
+                <div class="menu-item" tabindex="0" role="article" aria-labelledby="chicken-bunny-title">
+                    <h3 id="chicken-bunny-title">🍛 Chicken Bunny Chow</h3>
                     <p>Traditional South African Indian street food - aromatic curry served in a hollowed-out loaf of bread. Our chicken is marinated in authentic spices and slow-cooked to perfection.</p>
                 </div>
 
-                <div class="menu-item" tabindex="0">
-                    <h3>🥘 Mutton Bunny Chow</h3>
+                <div class="menu-item" tabindex="0" role="article" aria-labelledby="mutton-bunny-title">
+                    <h3 id="mutton-bunny-title">🥘 Mutton Bunny Chow</h3>
                     <p>Rich, tender mutton curry with deep flavors of cardamom, cinnamon, and bay leaves. Served the traditional way in fresh bread - a true taste of heritage.</p>
                 </div>
 
-                <div class="menu-item" tabindex="0">
-                    <h3>🍚 Authentic Breyani</h3>
+                <div class="menu-item" tabindex="0" role="article" aria-labelledby="breyani-title">
+                    <h3 id="breyani-title">🍚 Authentic Breyani</h3>
                     <p>Fragrant basmati rice layered with succulent meat, saffron, and aromatic spices. Each grain tells a story of generations-old recipes passed down through time.</p>
                 </div>
             </div>
 
-            <!-- Social embeds: Facebook + Map -->
+            <!-- Social embeds: Facebook Page Plugin + Map -->
             <div class="social-embeds" aria-hidden="false">
                 <div class="embed-card" id="facebook-embed">
                     <h3 style="color:#fff; margin-bottom:0.5rem;">Facebook</h3>
-                    <p style="color:#fff5; font-size:0.95rem; margin-bottom:1rem;">Latest posts & updates (if visible)</p>
-                    <!-- Facebook Page/Post plugin placeholder -->
+                    <p style="color:#fff5; font-size:0.95rem; margin-bottom:1rem;">Latest posts & updates</p>
+                    <!-- Facebook Page Plugin placeholder -->
                     <div id="fb-root"></div>
-                    <div class="fb-post" 
+                    <div class="fb-page"
                          data-href="https://www.facebook.com/p/Mall-Cafe-100034650206105/"
-                         data-show-text="true"
-                         style="max-width:100%;">
-                         <!-- fallback -->
+                         data-tabs="timeline"
+                         data-width="550"             <!-- Increased width -->
+                         data-height="500"            <!-- Increased height -->
+                         data-small-header="true"     <!-- Smaller header -->
+                         data-adapt-container-width="true"
+                         data-hide-cover="false"
+                         data-show-facepile="true">   <!-- Show friends' faces -->
+                         <!-- Fallback message if plugin fails to load -->
                          <blockquote cite="https://www.facebook.com/p/Mall-Cafe-100034650206105/" class="fb-xfbml-parse-ignore">
-                             <a href="https://www.facebook.com/p/Mall-Cafe-100034650206105/">Mall Cafe</a>
+                             <a href="https://www.facebook.com/p/Mall-Cafe-100034650206105/">Mall Cafe</a> on Facebook
                          </blockquote>
-                    </div>
+                </div>
                 </div>
 
+                <!-- Map Embed -->
                 <div class="embed-card" id="map-embed">
                     <h3 style="color:#fff; margin-bottom:0.5rem;">Find Us</h3>
                     <p style="color:#fff5; font-size:0.95rem; margin-bottom:0.6rem;">Stanger Mall, 55 King Shaka Street, KwaDukuza</p>
-                    <!-- Simple Google Maps embed using the search q param -->
                     <iframe
                         class="map-iframe"
                         src="https://maps.google.com/maps?q=Stanger%20Mall%2055%20King%20Shaka%20Street%20KwaDukuza%204450&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -497,6 +697,11 @@
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         title="Mall Cafe location on Google Maps"></iframe>
+                     <p style="margin-top: 0.5rem; text-align: center;">
+                        <a href="https://maps.google.com/maps?q=Stanger%20Mall%2055%20King%20Shaka%20Street%20KwaDukuza%204450" target="_blank" rel="noopener noreferrer" style="color: #ff9800; text-decoration: underline;">
+                            Open in Google Maps
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -506,10 +711,8 @@
     <section class="cta-section" aria-labelledby="cta-title">
         <div class="container">
             <h2 id="cta-title" style="color: #ffffff; margin-bottom: 1rem; font-size: clamp(2rem,5vw,3.2rem);">Ready to Experience Authentic Indian Flavors?</h2>
-            <a href="tel:0325515926" class="cta-button" aria-label="Call Mall Cafe">📞 Call Now</a>
-            <a href="#map-embed" class="cta-button" aria-label="Visit Mall Cafe">📍 Visit Us</a>
-            <!-- secondary WhatsApp CTA -->
-            <a href="https://wa.me/27825515926?text=Hi%20Mall%20Cafe!%20I'd%20like%20to%20place%20an%20order." class="cta-button" style="background: linear-gradient(45deg,#25D366,#1DA851); color:#fff; box-shadow: none;" aria-label="WhatsApp Mall Cafe" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+            <a href="tel:+27325515926" class="cta-button" aria-label="Call Mall Cafe at 032 551 5926">📞 Call Now</a>
+            <a href="#map-embed" class="cta-button" aria-label="Visit Mall Cafe at Stanger Mall">📍 Visit Us</a>
         </div>
     </section>
 
@@ -519,56 +722,117 @@
             <h2 id="visit-title" style="color: #ff6b35; text-align: center; margin-bottom: 1.2rem; font-size: clamp(1.6rem, 3.5vw, 2.4rem);">Visit Mall Cafe</h2>
 
             <div class="info-grid">
-                <div class="info-card" tabindex="0">
-                    <h3>📍 Location</h3>
+                <div class="info-card" tabindex="0" role="region" aria-labelledby="location-heading">
+                    <h3 id="location-heading">📍 Location</h3>
                     <p>Stanger Mall<br>55 King Shaka Street<br>KwaDukuza Central<br>KwaDukuza, 4450</p>
                 </div>
 
-                <div class="info-card" tabindex="0">
-                    <h3>📞 Contact</h3>
-                    <p>032 551 5926</p>
+                <div class="info-card" tabindex="0" role="region" aria-labelledby="contact-heading">
+                    <h3 id="contact-heading">📞 Contact</h3>
+                    <p>Main Line: <a href="tel:+27325515926">032 551 5926</a></p>
                     <p style="margin-top:1rem; color:#ffeb3b;">Call ahead for takeaways!</p>
+                    <p style="margin-top:0.8rem;"><strong>WhatsApp Orders:</strong></p>
+                    <p><a href="https://wa.me/27824212535?text=Hi%20Mall%20Cafe!%20I'd%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer">📱 Munira: 082 421 2535</a></p>
+                    <p><a href="https://wa.me/27824206786?text=Hi%20Mall%20Cafe!%20I'd%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer">📱 Rafiq: 082 420 6786</a></p>
                 </div>
 
-                <div class="info-card" tabindex="0">
-                    <h3>🕐 Hours</h3>
-                    <p>Opens Monday at 8:30 AM</p>
-                    <p style="margin-top: 1rem; color: #ff9800;">Currently Closed</p>
+                <div class="info-card" tabindex="0" role="region" aria-labelledby="hours-heading">
+                    <h3 id="hours-heading">🕐 Hours</h3>
+                    <p><strong>Mon-Fri:</strong> 8:30 AM - 7:00 PM</p>
+                    <p><strong>Sat-Sun:</strong> 9:00 AM - 5:00 PM</p>
+                    <p style="margin-top: 1rem; color: #ff9800;" id="status-message">Currently Closed</p>
+                    <script>
+                        // Simple script to show open/closed status based on day/time
+                        (function() {
+                            const now = new Date();
+                            const day = now.getDay(); // 0 (Sunday) to 6 (Saturday)
+                            const hour = now.getHours();
+                            const minute = now.getMinutes();
+                            const totalMinutes = hour * 60 + minute;
+
+                            let isOpen = false;
+                            let statusText = "Currently Closed";
+                            let statusColor = "#ff9800";
+
+                            // Mon-Fri: 8:30 (510 mins) - 19:00 (1140 mins)
+                            if (day >= 1 && day <= 5) {
+                                if (totalMinutes >= 510 && totalMinutes < 1140) {
+                                    isOpen = true;
+                                    statusText = "Open Now!";
+                                    statusColor = "#4CAF50";
+                                }
+                            }
+                            // Sat-Sun: 9:00 (540 mins) - 17:00 (1020 mins)
+                            else if (day === 0 || day === 6) {
+                                if (totalMinutes >= 540 && totalMinutes < 1020) {
+                                    isOpen = true;
+                                    statusText = "Open Now!";
+                                    statusColor = "#4CAF50";
+                                }
+                            }
+
+                            const statusElement = document.getElementById('status-message');
+                            if (statusElement) {
+                                statusElement.textContent = statusText;
+                                statusElement.style.color = statusColor;
+                            }
+                        })();
+                    </script>
                 </div>
 
-                <div class="info-card" tabindex="0">
-                    <h3>🌟 Experience</h3>
-                    <p>Authentic recipes<br>Fresh ingredients<br>Traditional preparation<br>Unforgettable taste</p>
+                <div class="info-card" tabindex="0" role="region" aria-labelledby="experience-heading">
+                    <h3 id="experience-heading">🌟 Experience</h3>
+                    <ul style="text-align: left; padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Authentic family recipes</li>
+                        <li>Fresh, locally sourced ingredients</li>
+                        <li>Traditional cooking methods</li>
+                        <li>Unforgettable taste</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- WhatsApp floating button (primary) -->
-    <a
-      class="whatsapp-float"
-      href="https://wa.me/27825515926?text=Hi%20Mall%20Cafe!%20I'd%20like%20to%20place%20an%20order."
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat with Mall Cafe on WhatsApp">
-      <!-- Inline WhatsApp SVG icon -->
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-        <path d="M20.52 3.48A11.88 11.88 0 0012 0C5.37 0 .01 5.37.01 12.01c0 2.11.55 4.17 1.6 6.01L0 24l6.25-1.6A11.96 11.96 0 0012 24c6.63 0 11.99-5.37 11.99-11.99 0-3.21-1.25-6.22-3.47-8.53z" fill="#fff" opacity="0.12"/>
-        <path d="M12.01 22.2c-1.9 0-3.77-.52-5.37-1.5l-.38-.23L4 21l1.8-2.3-.25-.4A9.99 9.99 0 012.01 12.01 10 10 0 1112.01 22.2z" fill="#fff"/>
-        <path d="M17.5 14.3c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.78.97-.96 1.17-.18.2-.36.22-.66.08-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.28.3-.47.1-.2.05-.37-.02-.52-.07-.15-.66-1.59-.9-2.18-.24-.58-.49-.5-.67-.51-.17-.02-.37-.02-.57-.02-.2 0-.52.07-.8.37-.27.3-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.08 3.2 5.04 4.49 0 0 .3.1.55.05.26-.05 1.77-.72 2.02-1.41.25-.69.25-1.28.18-1.41-.07-.13-.27-.2-.57-.35z" fill="#25D366"/>
-      </svg>
-    </a>
-    <div class="whatsapp-tooltip" role="tooltip">Chat with us on WhatsApp</div>
+    <button class="whatsapp-float" id="whatsapp-trigger" aria-label="Chat with Mall Cafe on WhatsApp" aria-expanded="false" aria-controls="whatsapp-menu">
+        <!-- Inline WhatsApp SVG icon -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <path d="M20.52 3.48A11.88 11.88 0 0012 0C5.37 0 .01 5.37.01 12.01c0 2.11.55 4.17 1.6 6.01L0 24l6.25-1.6A11.96 11.96 0 0012 24c6.63 0 11.99-5.37 11.99-11.99 0-3.21-1.25-6.22-3.47-8.53z" fill="#fff" opacity="0.12"/>
+            <path d="M12.01 22.2c-1.9 0-3.77-.52-5.37-1.5l-.38-.23L4 21l1.8-2.3-.25-.4A9.99 9.99 0 012.01 12.01 10 10 0 1112.01 22.2z" fill="#fff"/>
+            <path d="M17.5 14.3c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.78.97-.96 1.17-.18.2-.36.22-.66.08-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.28.3-.47.1-.2.05-.37-.02-.52-.07-.15-.66-1.59-.9-2.18-.24-.58-.49-.5-.67-.51-.17-.02-.37-.02-.57-.02-.2 0-.52.07-.8.37-.27.3-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.08 3.2 5.04 4.49 0 0 .3.1.55.05.26-.05 1.77-.72 2.02-1.41.25-.69.25-1.28.18-1.41-.07-.13-.27-.2-.57-.35z" fill="#25D366"/>
+        </svg>
+    </button>
 
-    <!-- Facebook SDK (deferred) -->
-    <script defer>
+    <!-- WhatsApp popup menu -->
+    <div class="whatsapp-popup" id="whatsapp-menu" role="dialog" aria-labelledby="whatsapp-popup-title" aria-modal="true" tabindex="-1">
+        <h3 id="whatsapp-popup-title" style="padding: 15px; margin: 0; border-bottom: 1px solid #eee; font-size: 16px; color: #333;">Contact Us</h3>
+        <a href="https://wa.me/27824212535?text=Hi%20Mall%20Cafe!%20I'd%20like%20to%20place%20an%20order." class="whatsapp-option" target="_blank" rel="noopener noreferrer" tabindex="-1">
+            <!-- Inline WhatsApp SVG icon for menu -->
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="12" fill="#25D366"/>
+                <path fill="#fff" d="M17.5 14.3c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.78.97-.96 1.17-.18.2-.36.22-.66.08-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.28.3-.47.1-.2.05-.37-.02-.52-.07-.15-.66-1.59-.9-2.18-.24-.58-.49-.5-.67-.51-.17-.02-.37-.02-.57-.02-.2 0-.52.07-.8.37-.27.3-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.08 3.2 5.04 4.49 0 0 .3.1.55.05.26-.05 1.77-.72 2.02-1.41.25-.69.25-1.28.18-1.41-.07-.13-.27-.2-.57-.35z"/>
+            </svg>
+            <span>Munira - 082 421 2535</span>
+        </a>
+        <a href="https://wa.me/27824206786?text=Hi%20Mall%20Cafe!%20I'd%20like%20to%20place%20an%20order." class="whatsapp-option" target="_blank" rel="noopener noreferrer" tabindex="-1">
+            <!-- Inline WhatsApp SVG icon for menu -->
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="12" fill="#25D366"/>
+                <path fill="#fff" d="M17.5 14.3c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.78.97-.96 1.17-.18.2-.36.22-.66.08-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.28.3-.47.1-.2.05-.37-.02-.52-.07-.15-.66-1.59-.9-2.18-.24-.58-.49-.5-.67-.51-.17-.02-.37-.02-.57-.02-.2 0-.52.07-.8.37-.27.3-1.03 1.01-1.03 2.46s1.05 2.85 1.2 3.05c.15.2 2.08 3.2 5.04 4.49 0 0 .3.1.55.05.26-.05 1.77-.72 2.02-1.41.25-.69.25-1.28.18-1.41-.07-.13-.27-.2-.57-.35z"/>
+            </svg>
+            <span>Rafiq - 082 420 6786</span>
+        </a>
+    </div>
+
+    <!-- Facebook SDK (place this just before </body>) -->
+    <script>
     // Load FB SDK asynchronously
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
+        if (d.getElementById(id)) {return;} // Check if SDK is already loaded
         js = d.createElement(s); js.id = id;
-        js.defer = true;
         js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0";
+        js.async = true; // Use async for non-blocking loading
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>
@@ -576,7 +840,7 @@
     <!-- Main JS: particles, scroll effects, etc. -->
     <script defer>
     // Create floating particles (optimized)
-    function createParticles(count = 36) {
+    function createParticles(count = 30) { // Reduced particle count for performance
         const particlesContainer = document.getElementById('particles');
         if (!particlesContainer) return;
         const fragment = document.createDocumentFragment();
@@ -636,6 +900,18 @@
                 }
             });
         });
+
+        // Add smooth scroll to scroll down button
+        const scrollDownBtn = document.getElementById('scroll-down-btn');
+        if (scrollDownBtn) {
+            scrollDownBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const menuSection = document.getElementById('menu');
+                if (menuSection) {
+                    menuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
     }
 
     // Intersection Observer for entrance animations
@@ -674,13 +950,76 @@
         });
     }
 
+    // WhatsApp popup functionality with focus management
+    function initWhatsAppPopup() {
+        const trigger = document.getElementById('whatsapp-trigger');
+        const popup = document.getElementById('whatsapp-menu');
+        const options = popup.querySelectorAll('.whatsapp-option');
+        const firstOption = options[0];
+        const lastOption = options[options.length - 1];
+
+        function togglePopup(e) {
+            e.preventDefault();
+            const isActive = popup.classList.contains('active');
+            popup.classList.toggle('active', !isActive);
+            trigger.setAttribute('aria-expanded', !isActive);
+
+            if (!isActive) {
+                // Popup is now open
+                popup.focus(); // Focus the popup for screen readers
+                // Set tabindex for options to make them focusable
+                options.forEach(opt => opt.setAttribute('tabindex', '0'));
+            } else {
+                // Popup is now closed
+                trigger.focus(); // Return focus to the trigger
+                // Reset tabindex for options
+                options.forEach(opt => opt.setAttribute('tabindex', '-1'));
+            }
+        }
+
+        function closePopup(e) {
+            if (!popup.contains(e.target) && !trigger.contains(e.target)) {
+                if (popup.classList.contains('active')) {
+                    popup.classList.remove('active');
+                    trigger.setAttribute('aria-expanded', 'false');
+                    trigger.focus();
+                    options.forEach(opt => opt.setAttribute('tabindex', '-1'));
+                }
+            }
+        }
+
+        // Handle keyboard navigation within the popup
+        function handlePopupKeydown(e) {
+            if (e.key === 'Escape') {
+                popup.classList.remove('active');
+                trigger.setAttribute('aria-expanded', 'false');
+                trigger.focus();
+                options.forEach(opt => opt.setAttribute('tabindex', '-1'));
+            } else if (e.key === 'Tab') {
+                if (e.shiftKey && document.activeElement === firstOption) {
+                    e.preventDefault();
+                    lastOption.focus();
+                } else if (!e.shiftKey && document.activeElement === lastOption) {
+                    e.preventDefault();
+                    firstOption.focus();
+                }
+            }
+        }
+
+        trigger.addEventListener('click', togglePopup);
+        popup.addEventListener('keydown', handlePopupKeydown);
+        document.addEventListener('click', closePopup);
+        document.addEventListener('touchstart', closePopup); // For mobile
+    }
+
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
-        createParticles(40);
+        createParticles(35); // Slightly reduced particle count
         initScrollEffects();
         initSmoothScrolling();
         initIntersectionObserver();
         init3DEffects();
+        initWhatsAppPopup();
     });
     </script>
 </body>
