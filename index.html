@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mall Cafe - Authentic Indian Bunny Chows & Breyani</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ff6b35, #f7931e, #ffcc02);
+            color: #2c1810;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+            background: linear-gradient(135deg, #ff6b35 0%, #d32f2f 50%, #8b0000 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mandala" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="25" cy="25" r="15" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.3"/><circle cx="25" cy="25" r="10" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23mandala)"/></svg>') repeat;
+            animation: mandalaFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes mandalaFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            transform-style: preserve-3d;
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateZ(0) rotateX(0deg); }
+            50% { transform: translateZ(50px) rotateX(5deg); }
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #ffeb3b, #ff9800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { filter: brightness(1) drop-shadow(0 0 10px rgba(255,235,59,0.5)); }
+            to { filter: brightness(1.2) drop-shadow(0 0 20px rgba(255,235,59,0.8)); }
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 3vw, 2rem);
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .spice-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffeb3b;
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        .particle:nth-child(2n) { background: #ff9800; animation-delay: -2s; }
+        .particle:nth-child(3n) { background: #f44336; animation-delay: -4s; }
+        .particle:nth-child(4n) { background: #4caf50; animation-delay: -6s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .menu-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(45deg, #1a1a1a, #2d1b14);
+            position: relative;
+        }
+
+        .menu-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="paisley" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M30 10 Q40 20 30 30 Q20 20 30 10" fill="none" stroke="rgba(255,193,7,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23paisley)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            text-align: center;
+            color: #ff6b35;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            animation: sectionTitleGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes sectionTitleGlow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(255,107,53,0.3); }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 40px rgba(255,107,53,0.6); }
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .menu-item {
+            background: linear-gradient(135deg, rgba(255,107,53,0.9), rgba(211,47,47,0.9));
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,193,7,0.3);
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .menu-item:hover::before {
+            animation: shimmer 1.5s ease-in-out;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .menu-item:hover {
+            transform: perspective(1000px) rotateY(10deg) translateZ(30px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .menu-item h3 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .menu-item p {
+            color: #fff5e1;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .cta-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #ff6b35, #d32f2f);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #ffeb3b, #ff9800);
+            color: #2c1810;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transform: perspective(1000px) rotateX(0deg);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            margin: 1rem;
+            animation: ctaPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% { transform: perspective(1000px) rotateX(0deg) scale(1); }
+            50% { transform: perspective(1000px) rotateX(5deg) scale(1.05); }
+        }
+
+        .cta-button:hover {
+            transform: perspective(1000px) rotateX(10deg) translateZ(20px) scale(1.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #fff176, #ffb74d);
+        }
+
+        .info-section {
+            padding: 3rem 2rem;
+            background: linear-gradient(45deg, #2c1810, #1a1a1a);
+            color: #ffffff;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: rgba(255,107,53,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,193,7,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,107,53,0.2);
+            box-shadow: 0 15px 30px rgba(255,107,53,0.2);
+        }
+
+        .info-card h3 {
+            color: #ffeb3b;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            z-index: 1000;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .floating-spices {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .spice {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255,193,7,0.7);
+            animation: floatSpice 10s infinite ease-in-out;
+        }
+
+        @keyframes floatSpice {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-button {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-spices">
+        <div class="spice" style="left: 10%; animation-delay: 0s;">🌶️</div>
+        <div class="spice" style="left: 20%; animation-delay: 2s;">🧅</div>
+        <div class="spice" style="left: 30%; animation-delay: 4s;">🌿</div>
+        <div class="spice" style="left: 40%; animation-delay: 6s;">🍛</div>
+        <div class="spice" style="left: 50%; animation-delay: 8s;">🥘</div>
+        <div class="spice" style="left: 60%; animation-delay: 1s;">🌶️</div>
+        <div class="spice" style="left: 70%; animation-delay: 3s;">🧅</div>
+        <div class="spice" style="left: 80%; animation-delay: 5s;">🌿</div>
+        <div class="spice" style="left: 90%; animation-delay: 7s;">🍛</div>
+    </div>
+
+    <section class="hero">
+        <div class="spice-particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>MALL CAFE</h1>
+            <p class="subtitle">Authentic Indian Flavors • Bunny Chows & Breyani</p>
+            <p style="color: #ffeb3b; font-size: 1.2rem; margin-top: 1rem;">Experience the Soul of India</p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <section class="menu-section">
+        <div class="container">
+            <h2 class="section-title">Authentic Delicacies</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>🍛 Chicken Bunny Chow</h3>
+                    <p>Traditional South African Indian street food - aromatic curry served in a hollowed-out loaf of bread. Our chicken is marinated in authentic spices and slow-cooked to perfection.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🥘 Mutton Bunny Chow</h3>
+                    <p>Rich, tender mutton curry with deep flavors of cardamom, cinnamon, and bay leaves. Served the traditional way in fresh bread - a true taste of heritage.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🍚 Authentic Breyani</h3>
+                    <p>Fragrant basmati rice layered with succulent meat, saffron, and aromatic spices. Each grain tells a story of generations-old recipes passed down through time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 style="color: #ffffff; margin-bottom: 2rem; font-size: clamp(2rem, 5vw, 4rem); text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Ready to Experience Authentic Indian Flavors?</h2>
+            <a href="tel:0325515926" class="cta-button">📞 Call Now</a>
+            <a href="#location" class="cta-button">📍 Visit Us</a>
+        </div>
+    </section>
+
+    <section class="info-section" id="location">
+        <div class="container">
+            <h2 style="color: #ff6b35; text-align: center; margin-bottom: 3rem; font-size: clamp(2rem, 4vw, 3rem);">Visit Mall Cafe</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📍 Location</h3>
+                    <p>Stanger Mall<br>55 King Shaka Street<br>KwaDukuza Central<br>KwaDukuza, 4450</p>
+                </div>
+                <div class="info-card">
+                    <h3>📞 Contact</h3>
+                    <p>032 551 5926</p>
+                    <p style="margin-top: 1rem; color: #ffeb3b;">Call ahead for takeaways!</p>
+                </div>
+                <div class="info-card">
+                    <h3>🕐 Hours</h3>
+                    <p>Opens Monday at 8:30 AM</p>
+                    <p style="margin-top: 1rem; color: #ff9800;">Currently Closed</p>
+                </div>
+                <div class="info-card">
+                    <h3>🌟 Experience</h3>
+                    <p>Authentic recipes<br>Fresh ingredients<br>Traditional preparation<br>Unforgettable taste</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // 3D scroll effects
+        function initScrollEffects() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                
+                // Parallax background
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+                }
+
+                // 3D menu items
+                const menuItems = document.querySelectorAll('.menu-item');
+                menuItems.forEach((item, index) => {
+                    const rect = item.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    
+                    if (isVisible) {
+                        const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                        const rotateY = (progress - 0.5) * 20;
+                        const translateZ = progress * 30;
+                        
+                        item.style.transform = `perspective(1000px) rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
+                    }
+                });
+
+                // Hide scroll indicator after scrolling
+                const scrollIndicator = document.querySelector('.scroll-indicator');
+                if (scrollIndicator && scrolled > 100) {
+                    scrollIndicator.style.opacity = '0';
+                } else if (scrollIndicator) {
+                    scrollIndicator.style.opacity = '1';
+                }
+            });
+        }
+
+        // Smooth scrolling for internal links
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Intersection Observer for animations
+        function initIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.menu-item, .info-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        // Mouse movement 3D effects
+        function init3DEffects() {
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                const mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+
+                // Hero content 3D movement
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent) {
+                    const rotateX = mouseY * 5;
+                    const rotateY = mouseX * 5;
+                    heroContent.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                }
+
+                // Menu items subtle 3D movement
+                const menuItems = document.querySelectorAll('.menu-item');
+                menuItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    
+                    if (isVisible) {
+                        const rotateX = mouseY * 2;
+                        const rotateY = mouseX * 2;
+                        item.style.transform += ` rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    }
+                });
+            });
+        }
+
+        // Initialize all effects
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            initScrollEffects();
+            initSmoothScrolling();
+            initIntersectionObserver();
+            init3DEffects();
+        });
+    </script>
+</body>
+</html>
